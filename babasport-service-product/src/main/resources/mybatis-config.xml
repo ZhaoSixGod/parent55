@@ -3,7 +3,7 @@
 "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
 	<!-- 别名 -->
-	<!-- <typeAliases>
-		<package name="com.itheima.babasport.domain"/>
-	</typeAliases> -->
+	 <typeAliases>
+		<package name="com.itheima.babasport.pojo"/>
+	</typeAliases> 
 </configuration>
