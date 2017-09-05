@@ -21,7 +21,7 @@
 		values
 				
 		<trim prefix="(" suffix=")" suffixOverrides=",">
-				1,
+				#{id},
 			<if test="name != null and name != ''">
 				#{name},
 			</if>

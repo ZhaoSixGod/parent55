@@ -10,6 +10,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.itheima.babasport.dao.TestTbDao;
 import com.itheima.babasport.pojo.TestTb;
+import com.itheima.babasport.service.TestTbService;
 
 
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -17,13 +18,15 @@ import com.itheima.babasport.pojo.TestTb;
 public class TestTestTb {
 	
 	@Autowired
-	private TestTbDao testTbDao;
+//	private TestTbDao testTbDao;
+	private TestTbService testTbService;
 	
 	@Test
 	public void testAdd() throws Exception{
 		TestTb testTb=new TestTb();
+		testTb.setId(5);
 		testTb.setName("ajkjka");
 		testTb.setBirthday(new Date());
-		testTbDao.insertTestTb(testTb);
+		testTbService.insertTestTb(testTb);
 	}
 }
