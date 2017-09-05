@@ -10,7 +10,7 @@
   <dependencies>
   	<dependency>
   		<groupId>com.itheima.babasport</groupId>
-  		<artifactId>babasport-interface</artifactId>
+  		<artifactId>babasport-dao</artifactId>
   		<version>0.0.1-SNAPSHOT</version>
   	</dependency>
   </dependencies>
