@@ -1,8 +1,9 @@
 package com.itheima.babasport.pojo;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class TestTb {
+public class TestTb implements Serializable{
 	private Integer id;
 	private String name;
 	private Date birthday;

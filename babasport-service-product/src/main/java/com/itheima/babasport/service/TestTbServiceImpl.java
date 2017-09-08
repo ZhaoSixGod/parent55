@@ -8,7 +8,7 @@ import com.itheima.babasport.dao.TestTbDao;
 import com.itheima.babasport.pojo.TestTb;
 
 
-@Service
+@Service("testTbService")
 @Transactional
 public class TestTbServiceImpl implements TestTbService {
 	
