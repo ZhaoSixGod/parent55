@@ -24,7 +24,7 @@ public class CenterController {
 	@RequestMapping(value="/test/index.do")
 	public String index(){
 		TestTb testTb=new TestTb();
-		testTb.setId(5);
+		testTb.setId(6);
 		testTb.setName("ajkjka");
 		testTb.setBirthday(new Date());
 		testTbService.insertTestTb(testTb);

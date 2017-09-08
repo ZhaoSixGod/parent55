@@ -24,7 +24,9 @@
 	<!-- 1.起名 -->	
 	<dubbo:application name="babasport-service-product"/>
 	<!-- 2.连接zookeeper -->	
-	<dubbo:registry address="192.168.119.132:2181" protocol="zookeeper"/>
+	<!-- <dubbo:registry address="192.168.119.132:2181" protocol="zookeeper"/> -->
+	<!-- 设置直连,断开与zookeeper的连接 -->
+	<dubbo:registry address="N/A"/>
 	<!-- 3.注册IP port 默认端口号20880-->	
 	<dubbo:protocol host="127.0.0.1" port="20880"/>
 	<!-- 4.暴露接口 -->

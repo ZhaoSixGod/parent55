@@ -24,11 +24,15 @@
 	<!-- 1.起名 -->	
 	<dubbo:application name="babasport-service-product"/>
 	<!-- 2.连接zookeeper -->	
-	<dubbo:registry address="192.168.119.132:2181" protocol="zookeeper"/>
+	<!-- <dubbo:registry address="192.168.119.132:2181" protocol="zookeeper"/> -->
+	<!-- 设置直连,断开与zookeeper的连接 -->
+	<dubbo:registry address="N/A"/>
 	<!-- 3.引用接口 -->
-	<dubbo:reference interface="com.itheima.babasport.service.TestTbService" id="testService"/>
+	<!-- 设置直连 -->
+	<dubbo:reference interface="com.itheima.babasport.service.TestTbService" id="testService"
+	url="dubbo://127.0.0.1:20880"/>
 	
-	
-	
+	<!-- 全局设置 设置十分钟超时 -->
+	<dubbo:consumer timeout="600000"/>
 
 </beans>		
