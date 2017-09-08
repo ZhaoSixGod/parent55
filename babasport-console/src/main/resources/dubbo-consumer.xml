@@ -32,7 +32,11 @@
 	<dubbo:reference interface="com.itheima.babasport.service.TestTbService" id="testService"
 	url="dubbo://127.0.0.1:20880"/>
 	
-	<!-- 全局设置 设置十分钟超时 -->
-	<dubbo:consumer timeout="600000"/>
+	<!-- 
+	全局设置 
+	1.设置十分钟超时 
+	2.设置不检查服务
+	 -->
+	<dubbo:consumer timeout="600000" check="false"/>
 
 </beans>		
