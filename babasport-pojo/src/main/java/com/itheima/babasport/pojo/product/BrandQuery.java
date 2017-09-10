@@ -76,5 +76,45 @@ public class BrandQuery implements Serializable {
 		return "Brand [id=" + id + ", name=" + name + ", description=" + description + ", imgUrl=" + imgUrl + ", sort="
 				+ sort + ", isDisplay=" + isDisplay + "]";
 	}
+	
+	public static final Integer PAGESIZE=10;
+	public static final Integer PAGENO=1;
+	
+	//开始行
+	private Integer startRow;
+	//每页数
+	private Integer pageSize=PAGESIZE;
+	//当前页
+	private Integer pageNo=PAGENO;
+
+	public Integer getStartRow() {
+		return startRow;
+	}
+
+	public void setStartRow(Integer startRow) {
+		this.startRow = startRow;
+	}
+
+	public Integer getPageSize() {
+		return pageSize;
+	}
+
+	public void setPageSize(Integer pageSize) {
+		//计算开始行
+		this.startRow=(pageNo-1)*pageSize;
+		this.pageSize = pageSize;
+	}
+
+	public Integer getPageNo() {
+		return pageNo;
+	}
+
+	public void setPageNo(Integer pageNo) {
+		//计算开始行
+		this.startRow=(pageNo-1)*pageSize;
+		this.pageNo = pageNo;
+	}
+	
+	
 
 }

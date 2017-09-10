@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.itheima.babasport.pojo.product.Brand;
 import com.itheima.babasport.service.product.BrandService;
 
+import cn.itcast.common.page.Pagination;
+
 /**
  * 品牌管理
  * @author Administrator
@@ -26,10 +28,11 @@ public class BrandController {
 	public String list(Integer pageNo, String name, Integer isDisplay, Model model){
 		
 		//查询分页对象
+		Pagination pagination = brandService.selectPaginationByQuery(pageNo, name, isDisplay);
 		
 		//查询结果集
-		List<Brand> brands = brandService.selectBrandListByQuery(name, isDisplay);
-		model.addAttribute("brands", brands);
+		//List<Brand> brands = brandService.selectBrandListByQuery(name, isDisplay);
+		model.addAttribute("pagination", pagination);
 		model.addAttribute("name", name);
 		model.addAttribute("isDisplay", isDisplay);
 		
