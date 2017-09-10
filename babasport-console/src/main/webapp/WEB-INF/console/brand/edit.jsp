@@ -15,13 +15,14 @@
 </div>
 <div class="body-box" style="float:right">
 	<form id="jvForm" action="edit.do" method="post">
+		<input type="hidden" value="${brand.id }" name="id"/>
 		<table cellspacing="1" cellpadding="2" width="100%" border="0" class="pn-ftable">
 			<tbody>
 				<tr>
 					<td width="20%" class="pn-flabel pn-flabel-h">
 						<span class="pn-frequired">*</span>
 						品牌名称:</td><td width="80%" class="pn-fcontent">
-						<input type="text" class="required" name="name" maxlength="100"/>
+						<input type="text" class="required" name="name" maxlength="100" value="${brand.name }"/>
 					</td>
 				</tr>
 				<tr>
@@ -43,20 +44,20 @@
 				<tr>
 					<td width="20%" class="pn-flabel pn-flabel-h">
 						品牌描述:</td><td width="80%" class="pn-fcontent">
-						<input type="text" class="required" name="description" maxlength="80"  size="60"/>
+						<input value="${brand.description }" type="text" class="required" name="description" maxlength="80"  size="60"/>
 					</td>
 				</tr>
 				<tr>
 					<td width="20%" class="pn-flabel pn-flabel-h">
 						排序:</td><td width="80%" class="pn-fcontent">
-						<input type="text" class="required" name="sort" maxlength="80"/>
+						<input value="${brand.sort }" type="text" class="required" name="sort" maxlength="80"/>
 					</td>
 				</tr>
 				<tr>
 					<td width="20%" class="pn-flabel pn-flabel-h">
 						是否可用:</td><td width="80%" class="pn-fcontent">
-						<input type="radio" name="isDisplay" value="1" checked="checked"/>可用
-						<input type="radio" name="isDisplay" value="0"/>不可用
+						<input type="radio" name="isDisplay" value="1" <c:if test="${brand.isDisplay == 1 }">checked="checked"</c:if>/>可用
+						<input type="radio" name="isDisplay" value="0" <c:if test="${brand.isDisplay == 0 }">checked="checked"</c:if>/>不可用
 					</td>
 				</tr>
 			</tbody>

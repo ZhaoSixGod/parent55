@@ -14,4 +14,7 @@ public interface BrandDao {
 	//查询总条数
 	public Integer countBrandByQuery(BrandQuery brandQuery);
 	
+	//通过id查询一个品牌对象
+	public Brand selectBrandById(Long id);
+	
 }

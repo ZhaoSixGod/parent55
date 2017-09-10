@@ -90,6 +90,12 @@ public class BrandServiceImpl implements BrandService {
 		return pagination;
 	}
 	
+	//通过id查询一个品牌对象
+	@Override
+	public Brand selectBrandById(Long id) {
+		return brandDao.selectBrandById(id);
+	}
+	
 	
 	
 	
