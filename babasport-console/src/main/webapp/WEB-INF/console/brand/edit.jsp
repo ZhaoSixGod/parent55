@@ -4,7 +4,29 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <title>babasport-edit</title>
+
+<script type="text/javascript">
+	//上传图片
+	function uploadPic(){
+		
+		var options ={
+				url : "/upload/uploadPic.do",
+				type: "post",
+				dataType :"json",
+				success : function(data){
+					//data.path 下面的<img>
+					$("#allUrl").attr("src",data.path);
+				}
+		}
+		
+		//模拟下面的Form同时又异步提交
+		$("#jvForm").ajaxSubmit(options);
+		
+	}
+</script>
+
 </head>
+
 <body>
 <div class="box-positon">
 	<div class="rpos">当前位置: 品牌管理 - 添加</div>
