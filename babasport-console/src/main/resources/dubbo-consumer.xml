@@ -23,13 +23,19 @@
 	<!-- dubbo的服务消费者 -->
 	<!-- 1.起名 -->	
 	<dubbo:application name="babasport-service-product"/>
+	
+	
 	<!-- 2.连接zookeeper -->	
 	<!-- <dubbo:registry address="192.168.119.132:2181" protocol="zookeeper"/> -->
 	<!-- 设置直连,断开与zookeeper的连接 -->
 	<dubbo:registry address="N/A"/>
+	
+	
 	<!-- 3.引用接口 -->
 	<!-- 设置直连 -->
 	<dubbo:reference interface="com.itheima.babasport.service.TestTbService" id="testService"
+	url="dubbo://127.0.0.1:20880"/>
+	<dubbo:reference interface="com.itheima.babasport.service.product.BrandService" id="brandService"
 	url="dubbo://127.0.0.1:20880"/>
 	
 	<!-- 
