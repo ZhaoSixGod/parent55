@@ -9,7 +9,9 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.itheima.babasport.dao.TestTbDao;
+import com.itheima.babasport.dao.product.ProductDao;
 import com.itheima.babasport.pojo.TestTb;
+import com.itheima.babasport.pojo.product.Product;
 import com.itheima.babasport.service.TestTbService;
 
 
@@ -17,10 +19,9 @@ import com.itheima.babasport.service.TestTbService;
 @ContextConfiguration(locations={"classpath:application-context.xml"})
 public class TestTestTb {
 	
-	@Autowired
+/*	@Autowired
 //	private TestTbDao testTbDao;
 	private TestTbService testTbService;
-	
 	@Test
 	public void testAdd() throws Exception{
 		TestTb testTb=new TestTb();
@@ -28,5 +29,20 @@ public class TestTestTb {
 		testTb.setName("ajkjka");
 		testTb.setBirthday(new Date());
 		testTbService.insertTestTb(testTb);
+	}*/
+	
+	@Autowired
+	private ProductDao productDao;
+	
+	@Test
+	public void testAdd() throws Exception{
+		Product p=productDao.selectByPrimaryKey(10L);
+		System.out.println(p);
 	}
+	
+	
+	
+	
+	
+	
 }
