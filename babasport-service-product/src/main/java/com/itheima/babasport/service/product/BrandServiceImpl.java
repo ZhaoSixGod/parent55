@@ -101,6 +101,6 @@ public class BrandServiceImpl implements BrandService {
 		brandDao.uploadBrandById(brand);
 	}
 	
-
+	public void deletes(Long[] ids){
 	
 }

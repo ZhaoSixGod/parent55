@@ -20,4 +20,7 @@ public interface BrandDao {
 	//修改品牌通过id
 	public void uploadBrandById(Brand brand);
 	
+	//通过一堆id删除数据
+	public void deletes(Long[] ids);
+	
 }

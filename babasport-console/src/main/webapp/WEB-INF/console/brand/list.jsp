@@ -5,6 +5,37 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 <title>babasport-list</title>
+
+<script type="text/javascript">
+
+//全选
+function checkBox(name,checked){
+	$("input[name="+ name + "]").attr("checked",checked);
+}
+
+//删除 批量
+function optDelete(){
+	
+	//请至少选择一个
+	var size = $("input[name=ids]:checked").size();
+	if(size == 0 ){
+		alert("请至少选择一个");
+		return;
+	}
+	
+	//你确定删除吗
+	if(!confirm("你确定删除吗")){
+		return;
+	}
+	
+	//提交下面的form表单
+	$("#jvForm").attr("action","/brand/deletes.do");
+	$("#jvForm").attr("method","post");
+	$("#jvForm").submit();
+}
+
+</script>
+
 </head>
 <body>
 <div class="box-positon">
@@ -23,6 +54,8 @@
 	</select>
 	<input type="submit" class="query" value="查询"/>
 </form>
+
+<form id="jvForm">
 <table cellspacing="1" cellpadding="0" border="0" width="100%" class="pn-ltable">
 	<thead class="pn-lthead">
 		<tr>
@@ -62,6 +95,8 @@
 	
 	</tbody>
 </table>
+</form>
+
 <div class="page pb15">
 	<span class="r inb_a page_b">
 		<c:forEach items="${pagination.pageView }" var="page">
