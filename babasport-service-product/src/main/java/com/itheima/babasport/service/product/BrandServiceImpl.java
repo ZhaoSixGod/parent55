@@ -101,6 +101,9 @@ public class BrandServiceImpl implements BrandService {
 		brandDao.uploadBrandById(brand);
 	}
 	
+	//通过一堆id删除数据
 	public void deletes(Long[] ids){
+		brandDao.deletes(ids);
+	}
 	
 }
