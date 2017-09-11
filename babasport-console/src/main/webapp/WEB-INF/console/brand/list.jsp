@@ -14,7 +14,7 @@ function checkBox(name,checked){
 }
 
 //删除 批量
-function optDelete(){
+function optDelete(name,isDisplay,pageNo){
 	
 	//请至少选择一个
 	var size = $("input[name=ids]:checked").size();
@@ -29,7 +29,7 @@ function optDelete(){
 	}
 	
 	//提交下面的form表单
-	$("#jvForm").attr("action","/brand/deletes.do");
+	$("#jvForm").attr("action","/brand/deletes.do?name=" + name + "&isDisplay" + isDisplay + "&pageNo=" + pageNo );
 	$("#jvForm").attr("method","post");
 	$("#jvForm").submit();
 }
@@ -104,7 +104,7 @@ function optDelete(){
 		</c:forEach>
 	</span>
 </div>
-<div style="margin-top:15px;"><input class="del-button" type="button" value="删除" onclick="optDelete();"/></div>
+<div style="margin-top:15px;"><input class="del-button" type="button" value="删除" onclick="optDelete('${name}','${isDisplay }','${pagination.pageNo }');"/></div>
 </div>
 </body>
 </html>

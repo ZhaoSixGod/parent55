@@ -46,17 +46,15 @@ public class BrandServiceImpl implements BrandService {
 	//查询分页对象
 	public Pagination selectPaginationByQuery(Integer pageNo,String name,Integer isDisplay){
 		
-		Pagination pagination=new Pagination();
 		
-		//当前页
+		/*//当前页
 		pagination.setPageNo(Pagination.cpn(pageNo));
 		//每页数
-		pagination.setPageSize(3);
-		//总条数
+		pagination.setPageSize(3);*/
+		
+		//设置查询条件
 		BrandQuery brandQuery=new BrandQuery();
-		
 		StringBuilder params=new StringBuilder();
-		
 		//判断converter转换 本次转去掉前后空格 还是空格,转成null.即空字符串转为null
 		if(null!=name){
 			brandQuery.setName(name);
@@ -70,13 +68,17 @@ public class BrandServiceImpl implements BrandService {
 			brandQuery.setIsDisplay(1);
 			params.append("&isDiaplay=").append(1);
 		}
-		//设置当前页
+		
+		//分页对象,入参为当前页,每页数,总条数
+		Pagination pagination=new Pagination(Pagination.cpn(pageNo),3,brandDao.countBrandByQuery(brandQuery));
+		
+		//设置当前页,同时可以纠正当前页大于总页数的错误
 		brandQuery.setPageNo(pagination.getPageNo());
 		//设置每页数
 		brandQuery.setPageSize(pagination.getPageSize());
 	
-		//总条数
-		pagination.setTotalCount(brandDao.countBrandByQuery(brandQuery));
+		/*//总条数
+		pagination.setTotalCount(brandDao.countBrandByQuery(brandQuery));*/
 		
 		//结果集
 		pagination.setList(brandDao.selectBrandListByQuery(brandQuery));

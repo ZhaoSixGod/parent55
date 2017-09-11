@@ -58,9 +58,12 @@ public class BrandController {
 	
 	//删除 批量
 	@RequestMapping(value="/brand/deletes.do")
-	public String deletes(Long[] ids){
+	public String deletes(Long[] ids,String name ,Integer isDisplay,Integer pageNo,Model model ){
 		//通过一堆id删除数据
 		brandService.deletes(ids);
+		model.addAttribute("name",name);
+		model.addAttribute("isDisplay",isDisplay);
+		model.addAttribute("pageNo",pageNo);
 		return "redirect:/brand/list.do";
 	}
 	
