@@ -32,6 +32,7 @@
 	<!-- 4.暴露接口 -->
 	<dubbo:service interface="com.itheima.babasport.service.TestTbService" ref="testTbService"/>
 	<dubbo:service interface="com.itheima.babasport.service.product.BrandService" ref="brandService"/>
+	<dubbo:service interface="com.itheima.babasport.service.product.UploadService" ref="uploadService"/>
 	
 	
 	

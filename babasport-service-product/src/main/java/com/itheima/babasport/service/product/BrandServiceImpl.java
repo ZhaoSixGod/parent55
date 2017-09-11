@@ -95,19 +95,12 @@ public class BrandServiceImpl implements BrandService {
 	public Brand selectBrandById(Long id) {
 		return brandDao.selectBrandById(id);
 	}
+
+	//修改品牌通过id
+	public void uploadBrandById(Brand brand) {
+		brandDao.uploadBrandById(brand);
+	}
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+
 	
 }

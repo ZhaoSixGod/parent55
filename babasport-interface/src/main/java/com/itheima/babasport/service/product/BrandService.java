@@ -17,4 +17,8 @@ public interface BrandService {
 	
 	//通过id查询一个品牌对象
 	public Brand selectBrandById(Long id);
+	
+	//修改品牌通过id
+	public void uploadBrandById(Brand brand);
+	
 }

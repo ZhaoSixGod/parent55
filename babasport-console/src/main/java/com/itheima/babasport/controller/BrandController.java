@@ -48,6 +48,13 @@ public class BrandController {
 		return "brand/edit";
 	}
 	
+	//提交修改
+	@RequestMapping(value="/brand/edit.do")
+	public String edit(Brand brand){
+		//修改
+		brandService.uploadBrandById(brand);
+		return "redirect:/brand/list.do";
+	}
 	
 	
 }
