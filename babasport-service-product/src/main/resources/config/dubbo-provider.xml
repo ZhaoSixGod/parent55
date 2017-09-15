@@ -34,6 +34,7 @@
 	<dubbo:service interface="com.itheima.babasport.service.product.BrandService" ref="brandService"/>
 	<dubbo:service interface="com.itheima.babasport.service.product.UploadService" ref="uploadService"/>
 	<dubbo:service interface="com.itheima.babasport.service.product.ProductService" ref="productService"/>
+	<dubbo:service interface="com.itheima.babasport.service.product.ColorService" ref="colorService"/>
 	
 	
 	

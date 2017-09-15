@@ -8,7 +8,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.itheima.babasport.pojo.product.Brand;
+import com.itheima.babasport.pojo.product.Color;
 import com.itheima.babasport.service.product.BrandService;
+import com.itheima.babasport.service.product.ColorService;
 import com.itheima.babasport.service.product.ProductService;
 
 import cn.itcast.common.page.Pagination;
@@ -44,4 +46,37 @@ public class ProductController {
 		
 		return "product/list";
 	}
+	
+	@Autowired
+	private ColorService colorService;
+	
+	//去添加页面
+	@RequestMapping(value="/product/toAdd.do")
+	public String toAdd(Model model){
+		
+		//品牌结果集
+		List<Brand> brands = brandService.selectBrandListByQuery(null, 1);
+		model.addAttribute("brands", brands);
+		
+		//颜色结果集
+		List<Color> colors = colorService.selectColorList();
+		model.addAttribute("colors", colors);
+		
+		return "product/add";
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 }
