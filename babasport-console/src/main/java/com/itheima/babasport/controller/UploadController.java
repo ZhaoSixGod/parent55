@@ -2,6 +2,8 @@ package com.itheima.babasport.controller;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.UUID;
 
 import javax.servlet.http.HttpServletRequest;
@@ -12,6 +14,8 @@ import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.itheima.babasport.service.product.UploadService;
@@ -57,5 +61,30 @@ public class UploadController {
 		response.getWriter().write(jo.toString());
 		
 	}
+	
+	
+	//上传多张图片
+	@RequestMapping(value="/upload/uploadPics.do")
+	public @ResponseBody
+	List<String> uploadPics(@RequestParam(required=false)MultipartFile[] pics) throws Exception{
+		List<String> urls=new ArrayList<>();
+		for(MultipartFile pic :pics){
+			//保存图片到FastDFS中
+			String path = uploadService.uploadPic(pic.getBytes(), pic.getOriginalFilename(), pic.getSize());
+			urls.add(Constants.IMG_URL + path);
+		}
+		return urls;
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 }
