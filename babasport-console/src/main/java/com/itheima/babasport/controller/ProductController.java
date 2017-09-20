@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.itheima.babasport.pojo.product.Brand;
 import com.itheima.babasport.pojo.product.Color;
+import com.itheima.babasport.pojo.product.Product;
 import com.itheima.babasport.service.product.BrandService;
 import com.itheima.babasport.service.product.ColorService;
 import com.itheima.babasport.service.product.ProductService;
@@ -66,6 +67,14 @@ public class ProductController {
 	}
 	
 	
+	//商品添加提交
+	@RequestMapping(value="/product/add.do")
+	public String add(Product product){
+		//保存商品表,返回id
+		//保存库存表
+		productService.insertProduct(product);
+		return "redirect:/product/list.do";
+	}
 	
 	
 	
